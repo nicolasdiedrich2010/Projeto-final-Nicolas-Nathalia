@@ -1,6 +1,6 @@
 /* =========================================================
    PROJETOS
-   Edite esta lista para adicionar seus próprios projetos.
+   Edite esta lista para adicionar ou alterar seus projetos.
 ========================================================= */
 
 const projects = [
@@ -34,7 +34,7 @@ const projects = [
 
 
 /* =========================================================
-   RENDERIZAR PROJETOS
+   RENDERIZAÇÃO DOS PROJETOS
 ========================================================= */
 
 const projectsContainer =
@@ -43,18 +43,20 @@ const projectsContainer =
 
 function renderProjects() {
 
-    if (!projectsContainer) return;
+    if (!projectsContainer) {
+        return;
+    }
 
     projectsContainer.innerHTML = "";
 
-    projects.forEach((project) => {
+    projects.forEach(project => {
 
         const card = document.createElement("article");
 
         card.className = "project-card";
 
         card.innerHTML = `
-            <div>
+            <div class="project-content">
 
                 <span class="project-number">
                     PROJECT #${project.number}
@@ -70,10 +72,11 @@ function renderProjects() {
 
                 <div class="project-tech">
                     ${project.technologies
-                        .map(
-                            tech =>
-                                `<span>${tech}</span>`
-                        )
+                        .map(technology => `
+                            <span>
+                                ${technology}
+                            </span>
+                        `)
                         .join("")}
                 </div>
 
@@ -93,6 +96,7 @@ function renderProjects() {
     });
 }
 
+
 renderProjects();
 
 
@@ -107,11 +111,15 @@ const navMenu =
     document.querySelector(".nav-menu");
 
 
-menuButton.addEventListener("click", () => {
+if (menuButton && navMenu) {
 
-    navMenu.classList.toggle("open");
+    menuButton.addEventListener("click", () => {
 
-});
+        navMenu.classList.toggle("open");
+
+    });
+
+}
 
 
 /* =========================================================
@@ -126,7 +134,9 @@ navLinks.forEach(link => {
 
     link.addEventListener("click", () => {
 
-        navMenu.classList.remove("open");
+        if (navMenu) {
+            navMenu.classList.remove("open");
+        }
 
     });
 
@@ -144,31 +154,31 @@ const navigationLinks =
     document.querySelectorAll(".nav-link");
 
 
-const observer =
+const navigationObserver =
     new IntersectionObserver(
         entries => {
 
             entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
-
-                    const id =
-                        entry.target.getAttribute("id");
-
-                    navigationLinks.forEach(link => {
-
-                        link.classList.remove("active");
-
-                        if (
-                            link.getAttribute("href") ===
-                            `#${id}`
-                        ) {
-                            link.classList.add("active");
-                        }
-
-                    });
-
+                if (!entry.isIntersecting) {
+                    return;
                 }
+
+                const sectionId =
+                    entry.target.getAttribute("id");
+
+                navigationLinks.forEach(link => {
+
+                    link.classList.remove("active");
+
+                    if (
+                        link.getAttribute("href") ===
+                        `#${sectionId}`
+                    ) {
+                        link.classList.add("active");
+                    }
+
+                });
 
             });
 
@@ -180,7 +190,7 @@ const observer =
 
 
 sections.forEach(section => {
-    observer.observe(section);
+    navigationObserver.observe(section);
 });
 
 
@@ -194,7 +204,6 @@ const skillsSection =
 const skillBars =
     document.querySelectorAll(".skill-progress");
 
-
 let skillsAnimated = false;
 
 
@@ -202,28 +211,30 @@ const skillsObserver =
     new IntersectionObserver(
         entries => {
 
+            const section = entries[0];
+
             if (
-                entries[0].isIntersecting &&
-                !skillsAnimated
+                !section.isIntersecting ||
+                skillsAnimated
             ) {
-
-                skillsAnimated = true;
-
-                skillBars.forEach(bar => {
-
-                    const progress =
-                        bar.dataset.progress;
-
-                    setTimeout(() => {
-
-                        bar.style.width =
-                            `${progress}%`;
-
-                    }, 150);
-
-                });
-
+                return;
             }
+
+            skillsAnimated = true;
+
+            skillBars.forEach((bar, index) => {
+
+                const progress =
+                    bar.dataset.progress;
+
+                setTimeout(() => {
+
+                    bar.style.width =
+                        `${progress}%`;
+
+                }, index * 100 + 150);
+
+            });
 
         },
         {
@@ -238,20 +249,23 @@ if (skillsSection) {
 
 
 /* =========================================================
-   ANO AUTOMÁTICO
+   ANO AUTOMÁTICO DO FOOTER
 ========================================================= */
 
 const year =
     document.getElementById("year");
 
+
 if (year) {
+
     year.textContent =
         new Date().getFullYear();
+
 }
 
 
 /* =========================================================
-   EFEITO SUAVE NOS BOTÕES
+   EFEITO DOS BOTÕES
 ========================================================= */
 
 const buttons =
@@ -263,7 +277,7 @@ buttons.forEach(button => {
     button.addEventListener("mouseenter", () => {
 
         button.style.transition =
-            "transform .2s ease, box-shadow .2s ease";
+            "transform 0.2s ease, box-shadow 0.2s ease";
 
     });
 
@@ -271,7 +285,7 @@ buttons.forEach(button => {
 
 
 /* =========================================================
-   CURSOR / MOVIMENTO SUTIL DO HERO
+   MOVIMENTO SUTIL DO HERO
 ========================================================= */
 
 const hero =
@@ -288,17 +302,17 @@ if (hero && heroVisual) {
         const rect =
             hero.getBoundingClientRect();
 
-        const x =
+        const mouseX =
             event.clientX - rect.left;
 
-        const y =
+        const mouseY =
             event.clientY - rect.top;
 
         const moveX =
-            (x / rect.width - 0.5) * 10;
+            (mouseX / rect.width - 0.5) * 10;
 
         const moveY =
-            (y / rect.height - 0.5) * 10;
+            (mouseY / rect.height - 0.5) * 10;
 
         heroVisual.style.transform =
             `translate(${moveX}px, ${moveY}px)`;
@@ -322,7 +336,13 @@ if (hero && heroVisual) {
 
 const revealElements =
     document.querySelectorAll(
-        ".section-heading, .about-grid, .skill-card, .project-card, .contact-box"
+        `
+        .section-heading,
+        .about-grid,
+        .skill-card,
+        .project-card,
+        .contact-box
+        `
     );
 
 
@@ -334,10 +354,14 @@ revealElements.forEach(element => {
         "translateY(30px)";
 
     element.style.transition =
-        "opacity .7s ease, transform .7s ease";
+        "opacity 0.7s ease, transform 0.7s ease";
 
 });
 
+
+/* =========================================================
+   OBSERVER DO REVEAL
+========================================================= */
 
 const revealObserver =
     new IntersectionObserver(
@@ -345,18 +369,18 @@ const revealObserver =
 
             entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
-
-                    entry.target.style.opacity = "1";
-
-                    entry.target.style.transform =
-                        "translateY(0)";
-
-                    revealObserver.unobserve(
-                        entry.target
-                    );
-
+                if (!entry.isIntersecting) {
+                    return;
                 }
+
+                entry.target.style.opacity = "1";
+
+                entry.target.style.transform =
+                    "translateY(0)";
+
+                revealObserver.unobserve(
+                    entry.target
+                );
 
             });
 

@@ -1,0 +1,36 @@
+# Dependências
+node_modules/
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.development
+.env.production
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configurações de editores
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos de backup
+*.bak
+*.swp
+
+# Builds e arquivos gerados
+dist/
+build/
+
+# Arquivos de cache
+.cache/
+.parcel-cache/
