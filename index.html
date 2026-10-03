@@ -1,11 +1,533 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Nicolas Diedrich | Desenvolvedor Web</title>
+
+    <meta
+        name="description"
+        content="Portfólio de Nicolas Diedrich, desenvolvedor web de Maravilha - SC."
+    >
+
+    <link rel="stylesheet" href="css/estyle.css">
 </head>
+
 <body>
-    
+
+    <!-- =========================
+         HEADER / NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                <span class="logo-dot"></span>
+                NICOLAS
+            </a>
+
+            <nav class="nav-menu">
+
+                <a href="#home" class="nav-link active">
+                    INÍCIO
+                </a>
+
+                <a href="#sobre" class="nav-link">
+                    SOBRE
+                </a>
+
+                <a href="#habilidades" class="nav-link">
+                    HABILIDADES
+                </a>
+
+                <a href="#projetos" class="nav-link">
+                    PROJETOS
+                </a>
+
+                <a href="#contato" class="nav-link">
+                    CONTATO
+                </a>
+
+            </nav>
+
+            <!-- Imagem do Greninja -->
+            <div class="greninja-container">
+                <img
+                    src="assets/greninja.png"
+                    alt="Greninja"
+                    class="greninja"
+                    onerror="this.style.display='none'; document.querySelector('.greninja-placeholder').style.display='flex';"
+                >
+
+                <div class="greninja-placeholder">
+                    G
+                </div>
+            </div>
+
+            <button class="menu-button" id="menuButton" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+        <section id="home" class="hero">
+
+            <div class="hero-background">
+                <div class="glow glow-1"></div>
+                <div class="glow glow-2"></div>
+            </div>
+
+            <div class="hero-container">
+
+                <div class="hero-content">
+
+                    <p class="hero-small">
+                        OLÁ, EU SOU
+                    </p>
+
+                    <h1>
+                        Nicolas
+                        <span>Diedrich</span>
+                    </h1>
+
+                    <div class="hero-role">
+                        <span class="line"></span>
+                        DESENVOLVEDOR WEB
+                    </div>
+
+                    <p class="hero-description">
+                        Transformando ideias em experiências digitais
+                        modernas, funcionais e criativas.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#projetos" class="button primary">
+                            VER PROJETOS
+                        </a>
+
+                        <a href="#contato" class="button secondary">
+                            ENTRAR EM CONTATO
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="visual-circle circle-1"></div>
+                    <div class="visual-circle circle-2"></div>
+
+                    <div class="code-card">
+
+                        <div class="code-header">
+                            <span class="red"></span>
+                            <span class="yellow"></span>
+                            <span class="green"></span>
+                        </div>
+
+                        <div class="code-content">
+
+                            <p>
+                                <span class="purple">const</span>
+                                developer =
+                            </p>
+
+                            <p class="indent">
+                                {
+                            </p>
+
+                            <p class="indent-2">
+                                name:
+                                <span class="green-text">
+                                    "Nicolas"
+                                </span>,
+                            </p>
+
+                            <p class="indent-2">
+                                location:
+                                <span class="green-text">
+                                    "SC, Brasil"
+                                </span>,
+                            </p>
+
+                            <p class="indent-2">
+                                passion:
+                                <span class="green-text">
+                                    "Code"
+                                </span>
+                            </p>
+
+                            <p class="indent">
+                                };
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="scroll-indicator">
+                <span></span>
+                SCROLL
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SOBRE
+        ========================== -->
+
+        <section id="sobre" class="section about">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                    <div>
+                        <p class="section-label">
+                            SOBRE MIM
+                        </p>
+
+                        <h2>
+                            Conheça um pouco
+                            <span>da minha história.</span>
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+
+                        <p class="highlight">
+                            Sou uma pessoa movida pela curiosidade,
+                            pelo aprendizado constante e pelo desafio
+                            de encontrar soluções para problemas novos.
+                        </p>
+
+                        <p>
+                            Não me limito ao que já sei. Diante de um
+                            desafio novo, pesquiso e busco o conhecimento
+                            necessário até encontrar uma solução.
+                        </p>
+
+                        <p>
+                            Busco evoluir continuamente na minha formação
+                            acadêmica e profissional, mantendo disciplina,
+                            constância e disposição para aprender.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-info">
+
+                        <div class="info-item">
+                            <span>LOCALIZAÇÃO</span>
+                            <strong>Maravilha - SC</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <span>ÁREA</span>
+                            <strong>Desenvolvimento Web</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <span>STATUS</span>
+                            <strong class="online">
+                                <i></i>
+                                DISPONÍVEL
+                            </strong>
+                        </div>
+
+                        <div class="info-item">
+                            <span>FOCO</span>
+                            <strong>Tecnologia</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             HABILIDADES
+        ========================== -->
+
+        <section id="habilidades" class="section skills">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <div>
+                        <p class="section-label">
+                            TECNOLOGIAS
+                        </p>
+
+                        <h2>
+                            Minhas
+                            <span>habilidades.</span>
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+                    <div class="skill-card">
+
+                        <div class="skill-top">
+                            <span>HTML</span>
+                            <strong>90%</strong>
+                        </div>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-card">
+
+                        <div class="skill-top">
+                            <span>CSS</span>
+                            <strong>85%</strong>
+                        </div>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-card">
+
+                        <div class="skill-top">
+                            <span>JAVASCRIPT</span>
+                            <strong>75%</strong>
+                        </div>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="75"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-card">
+
+                        <div class="skill-top">
+                            <span>GIT / GITHUB</span>
+                            <strong>70%</strong>
+                        </div>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="70"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-card">
+
+                        <div class="skill-top">
+                            <span>CRIATIVIDADE</span>
+                            <strong>95%</strong>
+                        </div>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="95"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-card">
+
+                        <div class="skill-top">
+                            <span>APRENDIZADO</span>
+                            <strong>99%</strong>
+                        </div>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="99"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJETOS
+        ========================== -->
+
+        <section id="projetos" class="section projects">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <div>
+                        <p class="section-label">
+                            MEU TRABALHO
+                        </p>
+
+                        <h2>
+                            Projetos em
+                            <span>destaque.</span>
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="projects-grid" id="projectsContainer">
+                    <!-- Projetos inseridos pelo JavaScript -->
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTATO
+        ========================== -->
+
+        <section id="contato" class="section contact">
+
+            <div class="section-container">
+
+                <div class="contact-box">
+
+                    <div class="contact-content">
+
+                        <p class="section-label">
+                            CONTATO
+                        </p>
+
+                        <h2>
+                            Vamos criar algo
+                            <span>incrível juntos?</span>
+                        </h2>
+
+                        <p>
+                            Se você quiser conversar sobre tecnologia,
+                            projetos ou desenvolvimento, entre em contato.
+                        </p>
+
+                        <div class="contact-buttons">
+
+                            <a
+                                href="https://github.com/nicolasdiedrich2010"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="button primary"
+                            >
+                                GITHUB
+                            </a>
+
+                            <a
+                                href="mailto:SEU EMAIL AQUI"
+                                class="button secondary"
+                            >
+                                EMAIL
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="contact-decoration">
+                        <div class="big-circle"></div>
+                        <div class="small-circle"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <p>
+                © <span id="year"></span>
+                Nicolas Diedrich.
+                Todos os direitos reservados.
+            </p>
+
+            <a
+                href="https://github.com/nicolasdiedrich2010"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GITHUB ↗
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/ex01.js"></script>
+
 </body>
 </html>
