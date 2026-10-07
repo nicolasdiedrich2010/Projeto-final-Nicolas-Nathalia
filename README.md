@@ -30,12 +30,10 @@ O objetivo é apresentar de forma organizada minhas habilidades, conhecimentos, 
 ```text
 portfolio/
 │
-├── index.html
 ├── css/
 │   └── estyle.css
 ├── js/
 │   └── ex01.js
+├── index.html
 ├── README.md
 │
-└── assets/
-    └── greninja.png
